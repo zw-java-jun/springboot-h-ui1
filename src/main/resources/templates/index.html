@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    .w1200{ width: 1200px;margin: auto;
+        background:#f4f4f4;}
+    td{border: 1px solid #000}
+    table{}
+</style>
+<body>
+
+
+<div class="w1200">
+    <b>首页</b>
+    <p align="center"><a th:href="@{/user/add}">去add页面</a></p>
+    <p align="center"><a th:href="@{/user/edit}">去edit页面</a></p>
+    <table>
+        <tr>
+            <td>
+                账号
+            </td>
+            <td>
+                年龄
+            </td>
+            <td>
+                邮箱
+            </td>
+        </tr>
+        <tr th:each="use:${user}">
+            <td th:text="${use.getUsername}"></td>
+            <td th:text="${use.getEmail}">
+            </td>
+            <td th:text="${use.getAge}">
+            </td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>

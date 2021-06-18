@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style type="text/css">
+    .w1200{ width: 1200px;margin: auto;
+        background:#f4f4f4;}
+</style>
+<body style="margin: auto">
+<div class="w1200">
+    <p th:text="${msg}" style="color:red;"></p>
+    <form th:action="@{/login}"  action="center">
+        <p align="center">用户名:<input type="text" name="username"></p>
+        <p align="center">密码:<input type="password" name="password"></p>
+        <p align="center"><input type="submit"></p>
+    </form>
+</div>
+
+</body>
+</html>
