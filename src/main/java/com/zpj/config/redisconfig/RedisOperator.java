@@ -71,9 +71,24 @@ public class RedisOperator {
     public Long setAdd(String key,Integer id){
         return redisTemplate.opsForSet().add(key, id);
     }
+
+    /**
+     *
+     * @param key
+     * 实现命令：查询set中的值
+     * @return
+     */
     public Set querySet(String key){
         return redisTemplate.opsForSet().members(key);
     }
+
+    /**
+     *
+     * @param key
+     * @param id
+     * 实现命令：删除set中的指定的值
+     * @return
+     */
     public Long removeSet(String key,Integer id){
         return redisTemplate.opsForSet().remove(key, id);
     }

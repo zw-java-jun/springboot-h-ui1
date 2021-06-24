@@ -2,14 +2,19 @@ package com.zpj.user.controller;
 
 import cn.dev33.satoken.session.SaSession;
 import cn.dev33.satoken.stp.StpUtil;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.zpj.Result;
 import com.zpj.config.redisconfig.RedisOperator;
 //import com.zpj.config.stpinterface.StpInterfaceImpl;
+import com.zpj.user.entity.User;
 import com.zpj.user.service.impl.UserServiceImpl;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.print.attribute.standard.JobOriginatingUserName;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
@@ -59,34 +64,21 @@ public class UserController {
     }
     @PostMapping("/login")
     @ApiOperation("登陆")
-    public Map<String, String> login(@RequestBody Map<String,String> login) throws Exception {
-//        HttpServletRequest request = (HttpServletRequest) servletRequest;
-//        String key = RSAEncryptor.rsaEncry(request.getHeader("key"));
-//        AES.key=key;
-//        String password2 = RSAEncryptor.rsaEncry(password);
-//        String username2 = RSAEncryptor.rsaEncry(username);
-//        String username2 = AES.aesDecrypt(username);
-//        String password2 = AES.aesDecrypt(password);
-//        QueryWrapper<User> wrapper = new QueryWrapper<>();
-//        wrapper.eq("username",username)
-//                .eq("password",password);
-//        User user = userService.getOne(wrapper);
-//        System.out.println("这是wrapper"+wrapper);
-//        if(user != null){
-//            StpUtil.setLoginId(user.getId());
-//            String token = StpUtil.getTokenValue();
-//            redisOperator.set("token",token);
-//            return Result.succ("登陆成功",user);
-//        }else{
-//            return Result.fail("账号密码错误");
-//        }
-//        Map<String, String> map = new HashMap<>();
-//        map.put("账号:",username);
-//        map.put("密码:",password);
-//        System.out.println(map);
-//        return map;
-        System.out.println(login);
-        return login;
+    public Result login(@RequestBody Map<String,String> usermes) throws Exception {
+
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("username",usermes.get("username"))
+                .eq("password",usermes.get("password"));
+        User user = userService.getOne(wrapper);
+        System.out.println("这是wrapper"+wrapper);
+        if(user != null){
+            StpUtil.setLoginId(user.getId());
+            String token = StpUtil.getTokenValue();
+            redisOperator.set("token",token);
+            return Result.succ("登陆成功",user);
+        }else{
+            return Result.fail("账号密码错误");
+        }
 
     }
     @GetMapping("/getToken")

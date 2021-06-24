@@ -13,13 +13,13 @@ import sun.misc.BASE64Decoder;
  * 跟前端IOS调通的版本
  */
 public class AES {
-    public static  String key= "5352120608928419";
+    public static  String key;
     private static final String ALGORITHMSTR = "AES/ECB/PKCS5Padding";
 
     public static void main(String[] args) throws Exception {
         String name = "zpj";
-        String age = "MTEjCAK1spEzgDjzwda6f5PH6aNlfWrcUzc/9yIoKyDaJEFHi8j2qWEuEUgczlyk";
-//
+        String age = "yVJOD8uQejyDVSuPluTJwNUjgop7SONN87KFJ7O/M0M2yAJaRcLXecFIWWcY0KqY";
+
 //       System.out.println("加密前：" + age);
 //
 //        String encrypt = aesEncrypt(age);

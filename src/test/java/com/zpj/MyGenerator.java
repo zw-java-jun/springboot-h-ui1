@@ -19,7 +19,7 @@ public class MyGenerator {
         GlobalConfig globalConfig = new GlobalConfig();
         //代码输出位置
         String projectPath = System.getProperty("user.dir");
-        globalConfig.setOutputDir(projectPath+"/src/main/java");
+        globalConfig.setOutputDir(projectPath+"/order/src/main/java");
         //设置作者信息
         globalConfig.setAuthor("zpj");
         //生成完毕之后不打开资源管理器
@@ -36,7 +36,7 @@ public class MyGenerator {
         //数据源设置***
         DataSourceConfig dataSourceConfig = new DataSourceConfig();
         dataSourceConfig.setDriverName("com.mysql.jdbc.Driver");
-        dataSourceConfig.setUrl("jdbc:mysql:///booui?characterEncoding=UTF-8");
+        dataSourceConfig.setUrl("jdbc:mysql:///bootui?characterEncoding=UTF-8");
         dataSourceConfig.setUsername("root");
         dataSourceConfig.setPassword("zpj523123");
 
@@ -62,7 +62,7 @@ public class MyGenerator {
         //策略配置
         StrategyConfig sc = new StrategyConfig();
         //****需要生成的映射的表名
-        sc.setInclude("gift");
+        sc.setInclude("orderios");
         //驼峰/划线命名转换
         sc.setNaming(NamingStrategy.underline_to_camel);
         sc.setColumnNaming(NamingStrategy.underline_to_camel);
