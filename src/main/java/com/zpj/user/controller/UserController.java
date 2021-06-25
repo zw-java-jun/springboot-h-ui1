@@ -86,6 +86,7 @@ public class UserController {
     public Long gettoken(String token){
         long ttl = redisOperator.ttl(token);
         if(ttl<0){
+            System.out.println("sss");
             StpUtil.logoutByLoginId(StpUtil.getLoginId());
         }
         return ttl;
