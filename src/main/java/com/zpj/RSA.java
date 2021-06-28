@@ -46,16 +46,15 @@ public class RSA {
 //        System.out.println("私钥解密AES秘钥后："+RsaAesdeKey);
         // 私钥加密，公钥解密
         String enStr2 = RSA.encryptByPrivate(str, privateKey);
-        System.out.println("私钥加密后："+enStr2);
+        System.out.println("私钥加密后：" + enStr2);
         String deStr2 = RSA.decryptByPublic(enStr2, publicKey);
-        System.out.println("公钥解密后："+deStr2);
+        System.out.println("公钥解密后：" + deStr2);
         // 产生签名
-//        String sign = sign(enStr2, privateKey);
-//        System.out.println("签名:"+sign);
-        // 验证签名
-//        boolean status = verify(enStr2, publicKey, sign);
-//        System.out.println("状态:"+status);
-        
+        String sign = sign(enStr2, privateKey);
+        System.out.println("签名:" + sign);
+        boolean status = verify(enStr2, publicKey, sign);
+        System.out.println("状态:" + status);
+
     }
     
     //定义加密方式
