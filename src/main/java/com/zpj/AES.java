@@ -20,10 +20,10 @@ public class AES {
         String name = "zpj";
         String age = "yVJOD8uQejyDVSuPluTJwNUjgop7SONN87KFJ7O/M0M2yAJaRcLXecFIWWcY0KqY";
 
-//       System.out.println("加密前：" + age);
-//
-//        String encrypt = aesEncrypt(age);
-//        System.out.println("加密后：" + encrypt);
+       System.out.println("加密前：" + age);
+
+        String encrypt = aesEncrypt(age);
+        System.out.println("加密后：" + encrypt);
 
         String decrypt = aesDecrypt(age);
         System.out.println("解密后：" + decrypt);
